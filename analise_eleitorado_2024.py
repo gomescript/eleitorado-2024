@@ -22,7 +22,7 @@ df = pd.read_csv(
     low_memory=False
 )
 
-print("✅ Dados carregados com sucesso!")
+print(" Dados carregados com sucesso!")
 print(f"   Linhas: {df.shape[0]:,}  |  Colunas: {df.shape[1]}")
 
 
@@ -58,18 +58,18 @@ total_eleitores = df["QT_ELEITORES_PERFIL"].sum()
 print(f"\nTotal de eleitores no Brasil: {total_eleitores:,}")
 
 
-# 4.2 — ELEITORES POR ESTADO (TOP 10)
+
 por_estado = (
     df.groupby("SG_UF")["QT_ELEITORES_PERFIL"]
     .sum()
     .sort_values(ascending=False)
     .reset_index()
 )
-print("\n🏆 Top 10 estados com mais eleitores:")
+print("\n Top 10 estados com mais eleitores:")
 print(por_estado.head(10))
 
 
-# 4.3 — ELEITORES POR GÊNERO
+
 por_genero = (
     df.groupby("DS_GENERO")["QT_ELEITORES_PERFIL"]
     .sum()
@@ -160,7 +160,7 @@ plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
 plt.savefig("grafico_faixa_etaria.png", dpi=150)
 plt.show()
-print("📸 Gráfico salvo: grafico_faixa_etaria.png")
+print("Gráfico salvo: grafico_faixa_etaria.png")
 
 
 
